@@ -10,15 +10,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de Clientes</title>
+        <link rel="stylesheet" href="estilos/estilo.css">
     </head>
     <body>
-        <form method="post" action="executar_inserir.jsp">
-            <h1>Cadastro de Clientes</h1>
-            <label>NOME</label>
-            <input type="text" name="nome" required/><br>
-            <label>EMAIL</label>
-            <input type="text" name="email" required/><br><br>
-            <input type="submit" value="ENVIAR">
+        <form style="margin: 15% 35%; width: 100%; background-color: darkgrey;" method="post" action="executar_inserir.jsp">
+            <h1 style="text-align: center;">Cadastro de Clientes</h1>
+            <label class="centerinform">NOME</label>
+            <input class="inputform" type="text" name="nome" required/><br><br>
+            <label class="centerinform">EMAIL</label>
+            <input class="inputform" type="text" name="email" required/><br><br>
+            <input id="inputbutton" type="submit" value="ENVIAR">
         </form>
     </body>
 </html>
