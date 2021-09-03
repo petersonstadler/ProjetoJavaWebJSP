@@ -13,11 +13,11 @@
         <link rel="stylesheet" href="estilos/estilo.css">
     </head>
     <body>
-        <form style="margin: 15% 35%; width: 100%; background-color: darkgrey;" method="post" action="executar_inserir.jsp">
+        <form style="margin: 15% 35%; width: auto; height: auto; background-color: darkgrey;" method="post" action="executar_inserir.jsp">
             <h1 style="text-align: center;">Cadastro de Clientes</h1>
-            <label class="centerinform">NOME</label>
+            <label class="centerinform" for="nome">NOME</label>
             <input class="inputform" type="text" name="nome" required/><br><br>
-            <label class="centerinform">EMAIL</label>
+            <label class="centerinform" for="email">EMAIL</label>
             <input class="inputform" type="text" name="email" required/><br><br>
             <input id="inputbutton" type="submit" value="ENVIAR">
         </form>

@@ -1,9 +1,3 @@
-#formulario {
-    margin: 15% 35%;
-    width: 100%;
-    background-color: darkgrey;
-}
-
 /*body{
     display: flex;
 }*/
@@ -12,7 +6,6 @@
     text-align: center;
     margin-left: 28%;
     float: left;
-    
 }
 
 #inputbutton{
