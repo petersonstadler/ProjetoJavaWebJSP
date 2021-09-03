@@ -16,11 +16,11 @@ public class TestesPrincipal {
     private static void TestarConexao(){
         try{
             Connection conn = new Conexao().getConexao();
-            System.out.println("Teste de Conexão: passou!");
+            System.out.println("Teste de Conexão: ok!");
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
             JOptionPane.showMessageDialog(null, e.getCause());
-            System.out.println("Teste de Conexão: não passou!");
+            System.out.println("Teste de Conexão: falhou!");
         }
     }
     

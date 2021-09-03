@@ -3,13 +3,14 @@ import MODEL.Cliente;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
 public class DAOCliente {
     
-    private Connection conn;
+    private final Connection conn;
     private PreparedStatement stmt;
     
     public DAOCliente(){
@@ -44,9 +45,7 @@ public class DAOCliente {
                 cliente.setEmail(result.getString("email"));
                 clientes.add(cliente);
             }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e.getMessage());
-            JOptionPane.showMessageDialog(null, e.getCause());
+        }catch(SQLException e){
             throw new RuntimeException("Erro ao listar clientes!", e);
         }
         return clientes;
