@@ -12,6 +12,7 @@
                 String email = request.getParameter("email");
                 if(nome.equals(null) || email.equals(null)){
                     response.sendRedirect("index.jsp");
+                    out.println("<br><br>Os campos precisam ser preenchidos");
                 }else{
                     cli.setNome(nome);
                     cli.setEmail(email);
