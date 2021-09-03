@@ -7,7 +7,10 @@ import javax.swing.JOptionPane;
 
 public class DAOClienteTestes {
     
-    public void testarListarClientes(){
+    //o registro será id = 4, nome = teste, email = teste.
+    public void testarListarClientes_QuandoHouverApenas1Registro(){
+        
+        final int IDNOME = 4;
         
         DAOCliente daoCliente = new DAOCliente();
         List<Cliente> clientes = daoCliente.listarClientes();
@@ -16,12 +19,10 @@ public class DAOClienteTestes {
         Cliente cli = clientes.get(0);
                 
                 
-        if(cli.getNome() == "teste" && cli.getEmail() == "teste" && cli.getId() == 4){
+        if(cli.getNome().equals("teste") && cli.getEmail().equals("teste") && cli.getId() == IDNOME){
             System.out.println("Teste listar clientes: ok!");
         }else{
-            Cliente cl2 = clientes.get(0);
-            System.out.println("Teste listar clientes: falhou! " + cli.getNome() + cli.getEmail() + cli.getId());
+            System.out.println("Teste listar clientes: falhou!");
         }
     }
-    
 }

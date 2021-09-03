@@ -26,6 +26,6 @@ public class TestesPrincipal {
     
     private static void TestarDAOClienteLISTAR(){
         DAOClienteTestes daoClientesTestes = new DAOClienteTestes();
-        daoClientesTestes.testarListarClientes();
+        daoClientesTestes.testarListarClientes_QuandoHouverApenas1Registro();
     }
 }
