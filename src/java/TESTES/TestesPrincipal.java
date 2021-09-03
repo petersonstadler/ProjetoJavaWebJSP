@@ -10,6 +10,7 @@ public class TestesPrincipal {
      */
     public static void main(String[] args) {
         TestarConexao();
+        TestarDAOClienteLISTAR();
     }
     
     private static void TestarConexao(){
@@ -21,5 +22,10 @@ public class TestesPrincipal {
             JOptionPane.showMessageDialog(null, e.getCause());
             System.out.println("Teste de Conexão: não passou!");
         }
+    }
+    
+    private static void TestarDAOClienteLISTAR(){
+        DAOClienteTestes daoClientesTestes = new DAOClienteTestes();
+        daoClientesTestes.testarListarClientes();
     }
 }
