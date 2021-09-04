@@ -49,4 +49,19 @@ public class DAOCliente {
         }
         return clientes;
     }
+    
+    public Cliente buscarClientePorID(int id){
+        Cliente cliente = new Cliente();
+        try{
+            String sql = "SELECT id, nome, email FROM tb_clientes WHERE id = " + id;
+            stmt = conn.prepareStatement(sql);
+            ResultSet result = (ResultSet) stmt.executeQuery();
+            cliente.setId(result.getInt("id"));
+            cliente.setNome(result.getString("nome"));
+            cliente.setEmail(result.getString("email"));
+        }catch(Exception e){
+            throw new RuntimeException("Erro ao Buscar Cliente pelo ID", e);
+        }
+        return cliente;
+    }
 }
