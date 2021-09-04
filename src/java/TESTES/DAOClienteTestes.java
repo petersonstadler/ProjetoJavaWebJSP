@@ -1,9 +1,7 @@
 package TESTES;
 import DAO.DAOCliente;
 import MODEL.Cliente;
-import java.util.ArrayList;
 import java.util.List;
-import javax.swing.JOptionPane;
 
 public class DAOClienteTestes {
     
