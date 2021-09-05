@@ -1,6 +1,9 @@
 package TESTES;
 import DAO.Conexao;
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class TestesPrincipal {
@@ -11,21 +14,37 @@ public class TestesPrincipal {
     public static void main(String[] args) {
         TestarConexao();
         TestarDAOClienteLISTAR();
+        TestarBuscarClientePorID();
     }
     
     private static void TestarConexao(){
         try{
             Connection conn = new Conexao().getConexao();
-            System.out.println("Teste de Conexão: ok!");
+            System.out.println("Teste de Conexão: OK!");
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
             JOptionPane.showMessageDialog(null, e.getCause());
-            System.out.println("Teste de Conexão: falhou!");
+            System.out.println("Teste de Conexão: FALHOU!");
         }
     }
     
     private static void TestarDAOClienteLISTAR(){
         DAOClienteTestes daoClientesTestes = new DAOClienteTestes();
-        daoClientesTestes.testarListarClientes_QuandoHouverApenas1Registro();
+        try {
+            daoClientesTestes.testarListarClientes_QuandoHouverApenas1Registro();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+            JOptionPane.showMessageDialog(null, ex.getCause());
+        }
+    }
+    
+    private static void TestarBuscarClientePorID(){
+        DAOClienteTestes daoClientesTestes = new DAOClienteTestes();
+        try {
+            daoClientesTestes.testarBuscarClientesPorID_QuandoIdIgualA4ForIgualNomeTeste();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+            JOptionPane.showMessageDialog(null, ex.getCause());
+        }
     }
 }
