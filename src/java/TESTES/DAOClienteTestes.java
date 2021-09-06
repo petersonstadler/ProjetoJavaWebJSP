@@ -2,9 +2,23 @@ package TESTES;
 import DAO.DAOCliente;
 import MODEL.Cliente;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DAOClienteTestes {
+    
+    private boolean create, read, update, delete;
+    
+    private List<Cliente> clientesTeste = new ArrayList<>();
+    
+    public DAOClienteTestes(){
+        Cliente cli = new Cliente();
+        for(int i = 0; i < 5; i++){
+            cli.setNome("teste" + i);
+            cli.setEmail("testeemail" + i);
+            clientesTeste.add(cli);
+        }
+    }
     
     //o registro será id = 4, nome = teste, email = teste.
     public void testarListarClientes_QuandoHouverApenas1Registro() throws SQLException{
@@ -36,5 +50,9 @@ public class DAOClienteTestes {
         }else{
             System.out.println("Teste Buscar Cliente por ID: FALHOU!");
         }
+    }
+    
+    public void testeSucessivoInserir(){
+        
     }
 }
