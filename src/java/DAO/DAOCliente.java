@@ -58,8 +58,9 @@ public class DAOCliente {
     public Cliente buscarClientePorID(int id) throws SQLException{
         Cliente cliente = new Cliente();
         try{
-            String sql = "SELECT id, nome, email FROM tb_clientes WHERE id = " + id;
+            String sql = "SELECT id, nome, email FROM tb_clientes WHERE id = ?";
             stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, id);
             ResultSet result = (ResultSet) stmt.executeQuery();
             
             while(result.next()){

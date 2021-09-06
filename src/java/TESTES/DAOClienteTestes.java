@@ -14,9 +14,9 @@ public class DAOClienteTestes {
         Cliente cli = clientes.get(0);
                 
         if(cli.getNome().equals("teste") && cli.getEmail().equals("teste") && cli.getId() == IDCLIENTE){
-            System.out.println("Teste listar clientes: ok!");
+            System.out.println("Teste listar clientes: OK!");
         }else{
-            System.out.println("Teste listar clientes: falhou!");
+            System.out.println("Teste listar clientes: FALHOU!");
         }
     }
     
@@ -34,7 +34,7 @@ public class DAOClienteTestes {
            teste.getId() == resultadoEsperado.getId()){
             System.out.println("Teste Buscar Cliente por ID: OK!");
         }else{
-            System.out.println("Teste Buscar Cliente por ID: Falhou!");
+            System.out.println("Teste Buscar Cliente por ID: FALHOU!");
         }
     }
 }
