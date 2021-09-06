@@ -76,4 +76,18 @@ public class DAOCliente {
         }
         return cliente;
     }
+    
+    public void deletarClientePorID(int id) throws SQLException{
+        try{
+            String sql = "DELETE FROM tb_clientes WHERE id = ?";
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, id);
+            stmt.executeUpdate();
+        }catch(Exception e){
+            throw new RuntimeException("Erro ao tentar deletar cliente!", e);
+        }finally{
+            stmt.close();
+            conn.close();
+        }
+    }
 }
