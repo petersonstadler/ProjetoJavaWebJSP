@@ -77,11 +77,33 @@ public class DAOClienteTestes {
             for(int i = 0; i < clientes.size(); i++){
                 System.out.println("id: " + clientes.get(i).getId() + ", Nome: " + clientes.get(i).getNome() + ", Email: " + clientes.get(i).getEmail());
             }
+            read = true;
         }catch(Exception e){
             read = false;
             JOptionPane.showMessageDialog(null, e.getMessage());
             JOptionPane.showMessageDialog(null, e.getCause());
             System.out.println("Teste sucessivo 02: Listar - FALHOU!");
+        }
+    }
+    
+    public void testeSucessivoAlterar(){
+        try{
+            DAOCliente dc = new DAOCliente();
+            List<Cliente> clientes = dc.listarClientes();
+            System.out.println("-------------------------Alterando testes----------------------");
+            for(int i = 0; i < clientes.size(); i++){
+                DAOCliente dc2 = new DAOCliente();
+                Cliente cli = new Cliente();
+                cli.setNome("testeAlterado" + i);
+                cli.setEmail("testeAlteradoEmail" + i);
+                cli.setId(clientes.get(i).getId());
+                dc2.alterarCliente(cli);
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getCause());
+            System.out.println("Teste sucessivo 03: Alterar - FALHOU!");
+            throw new RuntimeException("", e);
         }
     }
 }

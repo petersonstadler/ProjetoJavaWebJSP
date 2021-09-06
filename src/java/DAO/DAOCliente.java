@@ -91,11 +91,12 @@ public class DAOCliente {
     }
     
     public void alterarCliente(Cliente cliente) throws SQLException{
-        String sql = "UPDATE pessoa SET nome = ?, email = ?";
+        String sql = "UPDATE tb_clientes SET nome = ?, email = ? WHERE id = ?";
         try {
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, cliente.getNome());
             stmt.setString(2, cliente.getEmail());
+            stmt.setInt(3, cliente.getId());
             stmt.executeUpdate();
         } catch (Exception ex) {
             throw new RuntimeException("Erro ao tentar alterar cliente!", ex);
