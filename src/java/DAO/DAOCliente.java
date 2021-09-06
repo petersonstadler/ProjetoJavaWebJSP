@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DAOCliente {
     
@@ -84,6 +86,21 @@ public class DAOCliente {
             stmt.executeUpdate();
         }catch(Exception e){
             throw new RuntimeException("Erro ao tentar deletar cliente!", e);
+        }finally{
+            stmt.close();
+            conn.close();
+        }
+    }
+    
+    public void alterarCliente(Cliente cliente) throws SQLException{
+        String sql = "UPDATE pessoa SET nome = ?, email = ?";
+        try {
+            stmt = conn.prepareStatement(sql);
+            stmt.setString(1, cliente.getNome());
+            stmt.setString(2, cliente.getEmail());
+            stmt.executeUpdate();
+        } catch (Exception ex) {
+            throw new RuntimeException("Erro ao tentar alterar cliente!", ex);
         }finally{
             stmt.close();
             conn.close();
