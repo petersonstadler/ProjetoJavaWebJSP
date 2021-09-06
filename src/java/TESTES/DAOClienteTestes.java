@@ -4,16 +4,18 @@ import MODEL.Cliente;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class DAOClienteTestes {
     
+    //Variáveis para checkar os testes sucessivos(dependentes entre si)
     private boolean create, read, update, delete;
     
     private List<Cliente> clientesTeste = new ArrayList<>();
     
     public DAOClienteTestes(){
-        Cliente cli = new Cliente();
         for(int i = 0; i < 5; i++){
+            Cliente cli = new Cliente();
             cli.setNome("teste" + i);
             cli.setEmail("testeemail" + i);
             clientesTeste.add(cli);
@@ -53,6 +55,16 @@ public class DAOClienteTestes {
     }
     
     public void testeSucessivoInserir(){
-        
+        try{
+            for(int i = 0; i < clientesTeste.size(); i++){
+                DAOCliente dc = new DAOCliente();
+                dc.inserirCliente(clientesTeste.get(i));
+            }
+            System.out.println("Teste sucessivo 01: Inserir - OK!");
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getCause());
+            System.out.println("Teste sucessivo 01: Inserir - FALHA!");
+        }
     }
 }
