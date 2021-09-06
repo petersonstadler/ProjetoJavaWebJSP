@@ -63,11 +63,10 @@ public class DAOCliente {
             stmt.setInt(1, id);
             ResultSet result = (ResultSet) stmt.executeQuery();
             
-            while(result.next()){
-                cliente.setId(result.getInt("id"));
-                cliente.setNome(result.getString("nome"));
-                cliente.setEmail(result.getString("email"));
-            }
+            result.next();
+            cliente.setId(result.getInt("id"));
+            cliente.setNome(result.getString("nome"));
+            cliente.setEmail(result.getString("email"));
         }catch(Exception e){
             throw new RuntimeException("Erro ao Buscar Cliente pelo ID", e);
         }finally{
