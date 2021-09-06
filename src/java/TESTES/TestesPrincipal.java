@@ -11,8 +11,6 @@ public class TestesPrincipal {
      */
     public static void main(String[] args) {
         TestarConexao();
-        TestarDAOClienteLISTAR();
-        TestarBuscarClientePorID();
     }
     
     private static void TestarConexao(){

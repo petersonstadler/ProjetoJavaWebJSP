@@ -17,7 +17,7 @@
             <div style="float: right;">
                 <ul style="display: flex; width: 200px">
                     <li style="margin-top: 20px; margin-right: 50px"><a href="cadastro.jsp" title="Cadastrar">Cadastrar</a></li>
-                    <li style="margin-top: 20px; margin-right: 50px">Entrar</li>
+                    <li style="margin-top: 20px; margin-right: 50px"><a href="login.jsp" title="Entrar">Entrar</a></li>
                 </ul>
             </div>
         </header>
