@@ -60,11 +60,28 @@ public class DAOClienteTestes {
                 DAOCliente dc = new DAOCliente();
                 dc.inserirCliente(clientesTeste.get(i));
             }
+            create = true;
             System.out.println("Teste sucessivo 01: Inserir - OK!");
         }catch(Exception e){
+            create = false;
             JOptionPane.showMessageDialog(null, e.getMessage());
             JOptionPane.showMessageDialog(null, e.getCause());
-            System.out.println("Teste sucessivo 01: Inserir - FALHA!");
+            System.out.println("Teste sucessivo 01: Inserir - FALHOU!");
+        }
+    }
+    
+    public void testeSucessivoListar(){
+        try{
+            DAOCliente dc = new DAOCliente();
+            List<Cliente> clientes = dc.listarClientes();
+            for(int i = 0; i < clientes.size(); i++){
+                System.out.println("id: " + clientes.get(i).getId() + ", Nome: " + clientes.get(i).getNome() + ", Email: " + clientes.get(i).getEmail());
+            }
+        }catch(Exception e){
+            read = false;
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getCause());
+            System.out.println("Teste sucessivo 02: Listar - FALHOU!");
         }
     }
 }
