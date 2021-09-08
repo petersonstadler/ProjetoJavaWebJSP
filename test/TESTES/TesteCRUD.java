@@ -10,8 +10,8 @@ public class TesteCRUD {
         dcTestes.testeSucessivoListar();
         dcTestes.testeSucessivoDeletar();
         
-        if(dcTestes.isCreate() && dcTestes.isRead()
-           && dcTestes.isUpdate() && dcTestes.isDelete()){
+        if(dcTestes.isCreate() && dcTestes.isRead() && 
+           dcTestes.isUpdate() && dcTestes.isDelete()){
             System.out.println("Teste de CRUD: OK!");
         }else{
             System.out.println("Teste de CRUD: falhou!");
