@@ -39,8 +39,8 @@ public class DAOCliente {
         }
     }
     
-    public List<Cliente> listarClientes() throws SQLException{
-        List<Cliente> clientes = new ArrayList<>();
+    public ArrayList<Cliente> listarClientes() throws SQLException{
+        ArrayList<Cliente> clientes = new ArrayList<>();
         try{
             String sql = "SELECT id, nome, email FROM tb_clientes";
             stmt = conn.prepareStatement(sql);
