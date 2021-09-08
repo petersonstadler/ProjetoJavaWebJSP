@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Cadastro de Clientes</title>
-        <link rel="stylesheet" href="estilos/estilo.css">
+        <link rel="stylesheet" href="estilos/cadastro.css">
     </head>
     <body>
         <form style="margin: 15% 35%; height: 200px; background-color: darkgrey;" method="post" action="executar_inserir.jsp">
