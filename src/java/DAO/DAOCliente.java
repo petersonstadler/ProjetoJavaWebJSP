@@ -16,6 +16,15 @@ public class DAOCliente {
         conn = new Conexao().getConexao();
     }
     
+    public void closeConnections(){
+        try {
+            stmt.close();
+            conn.close();
+        } catch (SQLException ex) {
+            throw new RuntimeException("Erro ao fechar conexões!", ex);
+        }
+    }
+    
     public void inserirCliente(Cliente cliente) throws SQLException{
         
         String sql = "INSERT INTO tb_clientes (nome, email) " + "VALUES (?, ?)";
@@ -27,9 +36,6 @@ public class DAOCliente {
             stmt.execute();
         }catch(Exception e){
             throw new RuntimeException("Erro ao inserir Cliente!", e);
-        }finally{
-            stmt.close();
-            conn.close();
         }
     }
     
@@ -48,9 +54,6 @@ public class DAOCliente {
             }
         }catch(SQLException e){
             throw new RuntimeException("Erro ao listar clientes!", e);
-        }finally{
-            stmt.close();
-            conn.close();
         }
         return clientes;
     }
@@ -69,9 +72,6 @@ public class DAOCliente {
             cliente.setEmail(result.getString("email"));
         }catch(Exception e){
             throw new RuntimeException("Erro ao Buscar Cliente pelo ID", e);
-        }finally{
-            stmt.close();
-            conn.close();
         }
         return cliente;
     }
@@ -84,9 +84,6 @@ public class DAOCliente {
             stmt.executeUpdate();
         }catch(Exception e){
             throw new RuntimeException("Erro ao tentar deletar cliente!", e);
-        }finally{
-            stmt.close();
-            conn.close();
         }
     }
     
@@ -100,9 +97,6 @@ public class DAOCliente {
             stmt.executeUpdate();
         } catch (Exception ex) {
             throw new RuntimeException("Erro ao tentar alterar cliente!", ex);
-        }finally{
-            stmt.close();
-            conn.close();
         }
     }
 }

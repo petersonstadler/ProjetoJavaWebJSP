@@ -16,6 +16,7 @@ public class TestesPrincipal {
     private static void TestarConexao(){
         try{
             Connection conn = new Conexao().getConexao();
+            conn.close();
             System.out.println("Teste de Conexão: OK!");
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());

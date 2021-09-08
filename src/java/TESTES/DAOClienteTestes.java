@@ -50,6 +50,7 @@ public class DAOClienteTestes {
         }else{
             System.out.println("Teste listar clientes: FALHOU!");
         }
+        daoCliente.closeConnections();
     }
     
     public void testarBuscarClientesPorID_QuandoIdIgualA4ForIgualNomeTeste() throws SQLException{
@@ -68,12 +69,13 @@ public class DAOClienteTestes {
         }else{
             System.out.println("Teste Buscar Cliente por ID: FALHOU!");
         }
+        daoCliente.closeConnections();
     }
     
     public void testeSucessivoInserir(){
+        DAOCliente dc = new DAOCliente();
         try{
             for(int i = 0; i < clientesTeste.size(); i++){
-                DAOCliente dc = new DAOCliente();
                 dc.inserirCliente(clientesTeste.get(i));
             }
             create = true;
@@ -84,11 +86,12 @@ public class DAOClienteTestes {
             JOptionPane.showMessageDialog(null, e.getCause());
             System.out.println("Teste sucessivo 01: Inserir - FALHOU!");
         }
+        dc.closeConnections();
     }
     
     public void testeSucessivoListar(){
+        DAOCliente dc = new DAOCliente();
         try{
-            DAOCliente dc = new DAOCliente();
             List<Cliente> clientes = dc.listarClientes();
             for(int i = 0; i < clientes.size(); i++){
                 System.out.println("id: " + clientes.get(i).getId() + ", Nome: " + clientes.get(i).getNome() + ", Email: " + clientes.get(i).getEmail());
@@ -100,20 +103,20 @@ public class DAOClienteTestes {
             JOptionPane.showMessageDialog(null, e.getCause());
             System.out.println("Teste sucessivo 02: Listar - FALHOU!");
         }
+        dc.closeConnections();
     }
     
     public void testeSucessivoAlterar(){
+        DAOCliente dc = new DAOCliente();
         try{
-            DAOCliente dc = new DAOCliente();
             List<Cliente> clientes = dc.listarClientes();
             System.out.println("-------------------------Alterando testes----------------------");
             for(int i = 0; i < clientes.size(); i++){
-                DAOCliente dc2 = new DAOCliente();
                 Cliente cli = new Cliente();
                 cli.setNome("testeAlterado" + i);
                 cli.setEmail("testeAlteradoEmail" + i);
                 cli.setId(clientes.get(i).getId());
-                dc2.alterarCliente(cli);
+                dc.alterarCliente(cli);
             }
             update = true;
         }catch(Exception e){
@@ -123,15 +126,15 @@ public class DAOClienteTestes {
             System.out.println("Teste sucessivo 03: Alterar - FALHOU!");
             throw new RuntimeException("", e);
         }
+        dc.closeConnections();
     }
     
     public void testeSucessivoDeletar(){
-        DAOCliente dc1 = new DAOCliente();
+        DAOCliente dc = new DAOCliente();
         try{
-            List<Cliente> clientes = dc1.listarClientes();
+            List<Cliente> clientes = dc.listarClientes();
             System.out.println("-------------------------Deletando----------------------");
             for(int i = 0; i < clientes.size(); i++){
-                DAOCliente dc = new DAOCliente();
                 dc.deletarClientePorID(clientes.get(i).getId());
                 System.out.println(clientes.get(i).getNome() + " deletado com sucesso!");
             }
@@ -143,5 +146,6 @@ public class DAOClienteTestes {
             System.out.println("Teste sucessivo 04: Deletar - FALHOU!");
             throw new RuntimeException("", e);
         }
+        dc.closeConnections();
     }
 }
