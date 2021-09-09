@@ -10,6 +10,14 @@
         <title>Consultar Clientes</title>
         <link href="estilos/normalizar.css" rel="stylesheet" type="text/css"/>
         <link href="estilos/consultar_cliente.css" rel="stylesheet" type="text/css"/>
+        <script>
+            function confirmar(id, cliente){
+                var excluir = confirm("Deseja realmente excluir cliente: " + cliente + "?");
+                if(excluir){
+                    window.location.href = "executar_excluir.jsp?id=" + id;
+                }
+            }
+        </script>
     </head>
     <body style="justify-content: center;">
         <h1>Consultar Clientes</h1>
@@ -26,15 +34,16 @@
             
             DAOCliente cli = new DAOCliente();
             ArrayList<Cliente> lista = cli.listarClientes();
-            for(int i = 0; i < lista.size(); i++){
-                //request.setAttribute("id", lista.get(i).getId());
-                
+            for(int i = 0; i < lista.size(); i++){                
                 out.print("<tr>");
                     out.print("<td>"+ lista.get(i).getId() +"</td>");
                     out.print("<td>"+ lista.get(i).getNome() +"</td>");
                     out.print("<td>"+ lista.get(i).getEmail() +"</td>");
                     out.print("<td><a href=\"editar_cliente.jsp?id="+ lista.get(i).getId() +"&nome="+ lista.get(i).getNome() +"&email="+ lista.get(i).getEmail() + "\">EDITAR</a></td>");
-                    out.print("<td>EXCLUIR</td>");
+                    out.print("<td><input type=\"button\" value=\"Excluir\" onclick=\"confirmar("
+                            + lista.get(i).getId() + 
+                            ", '" + lista.get(i).getNome() + "'" +
+                            ");\"></td>");
                 out.print("</tr>");
             }
             out.print("</table>");

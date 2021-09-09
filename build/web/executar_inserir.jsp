@@ -17,6 +17,7 @@
                     cli.setNome(nome);
                     cli.setEmail(email);
                     cld.inserirCliente(cli);
+                    out.print("<script>alert(\"Inserido com sucesso!\")</script>");
                     response.sendRedirect("index.jsp");
                 }
             }catch(Exception e){
