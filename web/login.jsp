@@ -10,7 +10,7 @@
     <body>
         <div>
             <h1>Login</h1>
-            <p>Digite usuário e email</p>
+            <p>Digite usuário e senha</p>
             <br>
         </div>
         
