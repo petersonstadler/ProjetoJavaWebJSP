@@ -8,8 +8,7 @@ fieldset{
 }
 
 body{
-    margin-left: 36%;
-    margin-top: 2%;
+    display: grid;
     justify-content: center;
 }
 
