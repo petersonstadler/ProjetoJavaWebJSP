@@ -7,8 +7,12 @@
             <file>file:/F:/Users/peter/Documents/NetBeansProjects/ProjetoJavaWebJSP/src/java/MODEL/Cliente.java</file>
             <file>file:/F:/Users/peter/Documents/NetBeansProjects/ProjetoJavaWebJSP/src/java/DAO/DAOCliente.java</file>
             <file>file:/F:/Users/peter/Documents/NetBeansProjects/ProjetoJavaWebJSP/web/login.jsp</file>
+            <file>file:/F:/Users/peter/Documents/NetBeansProjects/ProjetoJavaWebJSP/web/index.jsp</file>
+            <file>file:/F:/Users/peter/Documents/NetBeansProjects/ProjetoJavaWebJSP/web/executar_inserir.jsp</file>
             <file>file:/F:/Users/peter/Documents/NetBeansProjects/ProjetoJavaWebJSP/test/TESTES/TesteCRUD.java</file>
+            <file>file:/F:/Users/peter/Documents/NetBeansProjects/ProjetoJavaWebJSP/web/editar_cliente.jsp</file>
             <file>file:/F:/Users/peter/Documents/NetBeansProjects/ProjetoJavaWebJSP/test/TESTES/TestesPrincipal.java</file>
+            <file>file:/F:/Users/peter/Documents/NetBeansProjects/ProjetoJavaWebJSP/test/TESTES/DAOClienteTestes.java</file>
             <file>file:/F:/Users/peter/Documents/NetBeansProjects/ProjetoJavaWebJSP/web/consultar_clientes.jsp</file>
             <file>file:/F:/Users/peter/Documents/NetBeansProjects/ProjetoJavaWebJSP/web/cadastro.jsp</file>
         </group>
