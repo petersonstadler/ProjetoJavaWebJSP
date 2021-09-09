@@ -2,6 +2,15 @@
 <%@page import="MODEL.Cliente"%>
 <%@page import="DAO.DAOCliente"%>
 <!DOCTYPE html>
+<script>
+    function mensagemSucesso(){
+        alert("Inserido com sucesso!");
+        window.location.href = "consultar_clientes.jsp";
+    }
+    function mensagemFalha(){
+        alert("Falha ao inserir Cliente!");
+    }
+</script>
 <html>
     <body>
         <%
@@ -17,10 +26,10 @@
                     cli.setNome(nome);
                     cli.setEmail(email);
                     cld.inserirCliente(cli);
-                    out.print("<script>alert(\"Inserido com sucesso!\")</script>");
-                    response.sendRedirect("index.jsp");
+                    out.print("<script>mensagemSucesso()</script>");
                 }
             }catch(Exception e){
+                out.print("<script>mensagemFalha()</script>");
                 throw new RuntimeException("Falha ao inserir Cliente!", e);
             }
         %>
