@@ -13,11 +13,12 @@
         <link rel="stylesheet" href="estilos/normalizar.css">
     </head>
     <body>
-        <header style="background-color: darkgrey; width: 100%; height: 90px; margin: 0;">
-            <div style="float: right;">
-                <ul style="display: flex; width: 200px">
+        <header style=" display: flex; justify-content: center; background-color: darkgrey; width: 100%; height: 90px; margin: 0;">
+            <div>
+                <ul style="display: flex; position: absolute; right: 1%;">
                     <li style="margin-top: 20px; margin-right: 50px"><a href="cadastro.jsp" title="Cadastrar">Cadastrar</a></li>
                     <li style="margin-top: 20px; margin-right: 50px"><a href="login.jsp" title="Entrar">Entrar</a></li>
+                    <li style="margin-top: 20px; margin-right: 50px"><a href="consultar_clientes.jsp" title="Consultar Clientes">Consultar Clientes</a></li>
                 </ul>
             </div>
         </header>

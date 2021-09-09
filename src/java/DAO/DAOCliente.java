@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class DAOCliente {
     
@@ -18,8 +17,12 @@ public class DAOCliente {
     
     public void closeConnections(){
         try {
-            stmt.close();
-            conn.close();
+            if(stmt != null){
+                stmt.close();
+            }
+            if(conn != null){
+                conn.close();
+            }
         } catch (SQLException ex) {
             throw new RuntimeException("Erro ao fechar conexões!", ex);
         }
