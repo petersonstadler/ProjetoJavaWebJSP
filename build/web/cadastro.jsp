@@ -12,7 +12,7 @@
         <title>Cadastro de Clientes</title>
         <link rel="stylesheet" href="estilos/cadastro.css">
     </head>
-    <body>
+    <body style="justify-content: center;">
         <form style="margin: 15% 35%; height: 200px; background-color: darkgrey;" method="post" action="executar_inserir.jsp">
             <h1 style="text-align: center;">Cadastro de Clientes</h1>
             <label class="centerinform" for="nome">NOME</label>
