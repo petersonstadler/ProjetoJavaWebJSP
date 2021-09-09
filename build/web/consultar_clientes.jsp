@@ -33,11 +33,12 @@
                     out.print("<td>"+ lista.get(i).getId() +"</td>");
                     out.print("<td>"+ lista.get(i).getNome() +"</td>");
                     out.print("<td>"+ lista.get(i).getEmail() +"</td>");
-                    out.print("<td><a href=\"editar_cliente.jsp?id="+ lista.get(i).getId() + "\">EDITAR</a></td>");
+                    out.print("<td><a href=\"editar_cliente.jsp?id="+ lista.get(i).getId() +"&nome="+ lista.get(i).getNome() +"&email="+ lista.get(i).getEmail() + "\">EDITAR</a></td>");
                     out.print("<td>EXCLUIR</td>");
                 out.print("</tr>");
             }
             out.print("</table>");
         %>
+        <a href="index.jsp">voltar</a>
     </body>
 </html>
