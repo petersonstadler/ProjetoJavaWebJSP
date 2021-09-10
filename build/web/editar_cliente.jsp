@@ -8,9 +8,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Editar Cliente</title>
     </head>
-    <body style="justify-content: center;">
-        <h1>Alterar Cliente</h1>
-        <fieldset>
+    <body style="display: grid; justify-content: center;">
+        <h1 style="text-align: center">Alterar Cliente</h1>
+        <fieldset style="width: fit-content; padding: 1em 2em;">
             <form method="get" action="executar_alterar.jsp">
                 <label for="id">ID</label><br>
                 <input type="text" name="id" value="<%=request.getParameter("id")%>" required readonly/><br><br>
