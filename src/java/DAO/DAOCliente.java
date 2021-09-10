@@ -61,6 +61,25 @@ public class DAOCliente {
         return clientes;
     }
     
+    public ArrayList<Cliente> listarClientePorNome(String nome){
+        ArrayList<Cliente> clientes = new ArrayList<>();
+        try{
+            String sql = "SELECT id, nome, email FROM tb_clientes WHERE LOWER(nome) LIKE LOWER('%"+nome+"%')";
+            stmt = conn.prepareStatement(sql);
+            ResultSet rs = (ResultSet) stmt.executeQuery();
+            while(rs.next()){
+                Cliente cliente = new Cliente();
+                cliente.setId(rs.getInt("id"));
+                cliente.setNome(rs.getString("nome"));
+                cliente.setEmail(rs.getString("email"));
+                clientes.add(cliente);
+            }
+            return clientes;
+        }catch(Exception e){
+            throw new RuntimeException("Erro ao listar Cliente por nome! " + e.getMessage());
+        }
+    }
+    
     public Cliente buscarClientePorID(int id) throws SQLException{
         Cliente cliente = new Cliente();
         try{

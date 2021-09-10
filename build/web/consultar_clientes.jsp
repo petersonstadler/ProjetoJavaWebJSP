@@ -21,6 +21,11 @@
     </head>
     <body style="justify-content: center;">
         <h1>Consultar Clientes</h1>
+        <form style="padding: 2em;">
+            <label for="nome">Buscar</label>
+            <input type="text" name="nome">
+            <input style="margin: 1em;" type="submit" value="Buscar">
+        </form>
         <%
             out.print("<table border='l'>");
             out.print("<tr>");
@@ -33,20 +38,38 @@
             
             
             DAOCliente cli = new DAOCliente();
-            ArrayList<Cliente> lista = cli.listarClientes();
-            for(int i = 0; i < lista.size(); i++){                
-                out.print("<tr>");
-                    out.print("<td>"+ lista.get(i).getId() +"</td>");
-                    out.print("<td>"+ lista.get(i).getNome() +"</td>");
-                    out.print("<td>"+ lista.get(i).getEmail() +"</td>");
-                    out.print("<td><a href=\"editar_cliente.jsp?id="+ lista.get(i).getId() +"&nome="+ lista.get(i).getNome() +"&email="+ lista.get(i).getEmail() + "\">EDITAR</a></td>");
-                    out.print("<td><input type=\"button\" value=\"Excluir\" onclick=\"confirmar("
-                            + lista.get(i).getId() + 
-                            ", '" + lista.get(i).getNome() + "'" +
-                            ");\"></td>");
-                out.print("</tr>");
+            String nome = request.getParameter("nome");
+            if(nome == null || nome == ""){
+                ArrayList<Cliente> lista = cli.listarClientes();
+                for(int i = 0; i < lista.size(); i++){                
+                    out.print("<tr>");
+                        out.print("<td>"+ lista.get(i).getId() +"</td>");
+                        out.print("<td>"+ lista.get(i).getNome() +"</td>");
+                        out.print("<td>"+ lista.get(i).getEmail() +"</td>");
+                        out.print("<td><a href=\"editar_cliente.jsp?id="+ lista.get(i).getId() +"&nome="+ lista.get(i).getNome() +"&email="+ lista.get(i).getEmail() + "\">EDITAR</a></td>");
+                        out.print("<td><input type=\"button\" value=\"Excluir\" onclick=\"confirmar("
+                                + lista.get(i).getId() + 
+                                ", '" + lista.get(i).getNome() + "'" +
+                                ");\"></td>");
+                    out.print("</tr>");
+                }
+                out.print("</table>");
+            }else{
+                ArrayList<Cliente> lista = cli.listarClientePorNome(nome);
+                for(int i = 0; i < lista.size(); i++){                
+                    out.print("<tr>");
+                        out.print("<td>"+ lista.get(i).getId() +"</td>");
+                        out.print("<td>"+ lista.get(i).getNome() +"</td>");
+                        out.print("<td>"+ lista.get(i).getEmail() +"</td>");
+                        out.print("<td><a href=\"editar_cliente.jsp?id="+ lista.get(i).getId() +"&nome="+ lista.get(i).getNome() +"&email="+ lista.get(i).getEmail() + "\">EDITAR</a></td>");
+                        out.print("<td><input type=\"button\" value=\"Excluir\" onclick=\"confirmar("
+                                + lista.get(i).getId() + 
+                                ", '" + lista.get(i).getNome() + "'" +
+                                ");\"></td>");
+                    out.print("</tr>");
+                }
+                out.print("</table>");
             }
-            out.print("</table>");
         %>
         <a href="index.jsp">voltar</a>
     </body>
