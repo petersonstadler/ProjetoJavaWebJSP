@@ -24,7 +24,7 @@ public class DAOCliente {
                 conn.close();
             }
         } catch (SQLException ex) {
-            throw new RuntimeException("Erro ao fechar conexões!", ex);
+            throw new RuntimeException("Erro ao fechar conexões!" + ex);
         }
     }
     
@@ -38,7 +38,7 @@ public class DAOCliente {
             stmt.setString(2, cliente.getEmail());
             stmt.execute();
         }catch(Exception e){
-            throw new RuntimeException("Erro ao inserir Cliente!", e);
+            throw new RuntimeException("Erro ao inserir Cliente!" + e);
         }
     }
     
@@ -56,7 +56,7 @@ public class DAOCliente {
                 clientes.add(cliente);
             }
         }catch(SQLException e){
-            throw new RuntimeException("Erro ao listar clientes!", e);
+            throw new RuntimeException("Erro ao listar clientes!" + e);
         }
         return clientes;
     }
@@ -74,7 +74,7 @@ public class DAOCliente {
             cliente.setNome(result.getString("nome"));
             cliente.setEmail(result.getString("email"));
         }catch(Exception e){
-            throw new RuntimeException("Erro ao Buscar Cliente pelo ID", e);
+            throw new RuntimeException("Erro ao Buscar Cliente pelo ID" + e);
         }
         return cliente;
     }
@@ -86,7 +86,7 @@ public class DAOCliente {
             stmt.setInt(1, id);
             stmt.executeUpdate();
         }catch(Exception e){
-            throw new RuntimeException("Erro ao tentar deletar cliente!", e);
+            throw new RuntimeException("Erro ao tentar deletar cliente!" + e);
         }
     }
     
@@ -99,7 +99,7 @@ public class DAOCliente {
             stmt.setInt(3, cliente.getId());
             stmt.executeUpdate();
         } catch (Exception ex) {
-            throw new RuntimeException("Erro ao tentar alterar cliente!", ex);
+            throw new RuntimeException("Erro ao tentar alterar cliente!" + ex);
         }
     }
 }
