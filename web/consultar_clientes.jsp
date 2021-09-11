@@ -17,6 +17,20 @@
                     window.location.href = "executar_excluir.jsp?id=" + id;
                 }
             }
+            
+            function editarCliente(idInt, nomeString, emailString){
+                window.location.href = "editar_cliente.jsp?id=" + idInt + "&nome=" + nomeString + "&email=" + emailString;
+            }
+            
+            function criarLinhaTabelaClientes(idInt, nomeString, emailString){
+                document.writeln("<tr>");
+                    document.writeln("<td>"+ idInt +"</td>");
+                    document.writeln("<td>"+ nomeString +"</td>");
+                    document.writeln("<td>"+ emailString +"</td>");
+                    document.writeln("<td><input type='button' value='Editar' onclick=\"editarCliente("+ idInt +",'"+ nomeString +"', '"+ emailString +"')\"></td>");
+                    document.writeln("<td><input type='button' value='Excluir' onclick=\"confirmar("+ idInt +", '"+ nomeString +"')\" ></td>");
+                document.writeln("</tr>");
+            }
         </script>
     </head>
     <body style="justify-content: center;">
@@ -41,8 +55,12 @@
             String nome = request.getParameter("nome");
             if(nome == null || nome == ""){
                 ArrayList<Cliente> lista = cli.listarClientes();
-                for(int i = 0; i < lista.size(); i++){                
-                    out.print("<tr>");
+                for(int i = 0; i < lista.size(); i++){       
+                    Cliente cliente = lista.get(i);
+                    out.println("<script>");
+                        out.println("criarLinhaTabelaClientes("+ cliente.getId() +", '"+ cliente.getNome() +"', '"+ cliente.getEmail() +"')");
+                    out.println("</script>");
+                    /*out.print("<tr>");
                         out.print("<td>"+ lista.get(i).getId() +"</td>");
                         out.print("<td>"+ lista.get(i).getNome() +"</td>");
                         out.print("<td>"+ lista.get(i).getEmail() +"</td>");
@@ -51,13 +69,17 @@
                                 + lista.get(i).getId() + 
                                 ", '" + lista.get(i).getNome() + "'" +
                                 ");\"></td>");
-                    out.print("</tr>");
+                    out.print("</tr>");*/
                 }
                 out.print("</table>");
             }else{
                 ArrayList<Cliente> lista = cli.listarClientePorNome(nome);
-                for(int i = 0; i < lista.size(); i++){                
-                    out.print("<tr>");
+                for(int i = 0; i < lista.size(); i++){ 
+                    Cliente cliente = lista.get(i);
+                    out.println("<script>");
+                        out.println("criarLinhaTabelaCliente("+ cliente.getId() +", '"+ cliente.getNome() +"', '"+ cliente.getEmail() +"')");
+                    out.println("</script>");
+                    /*out.print("<tr>");
                         out.print("<td>"+ lista.get(i).getId() +"</td>");
                         out.print("<td>"+ lista.get(i).getNome() +"</td>");
                         out.print("<td>"+ lista.get(i).getEmail() +"</td>");
@@ -66,10 +88,10 @@
                                 + lista.get(i).getId() + 
                                 ", '" + lista.get(i).getNome() + "'" +
                                 ");\"></td>");
-                    out.print("</tr>");
+                    out.print("</tr>");*/
                 }
-                out.print("</table>");
             }
+            out.print("</table>");
         %>
         <a href="index.jsp">voltar</a>
     </body>

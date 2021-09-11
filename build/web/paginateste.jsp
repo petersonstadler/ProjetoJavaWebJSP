@@ -48,7 +48,7 @@
     }
     
     function tableFill(listaDeClientes){
-        for(i = 0; listaDeClientes.length; i++){
+        for(let i = 0; listaDeClientes.length; i++){
             let cliente = new Cliente();
             cliente = listaDeClientes[i];
             document.writeln("<tr>");

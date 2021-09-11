@@ -6,7 +6,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>PaginaTeste</title>
+        <title>Pagina Buscar Cliente</title>
     </head>
     <body>
         <h1>Busca Cliente por id</h1>
