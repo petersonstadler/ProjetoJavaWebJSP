@@ -8,13 +8,14 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Pagina Buscar Cliente</title>
     </head>
-    <body>
-        <h1>Busca Cliente por id</h1>
+    <body style="display: grid; justify-content: center;">
+        <h1 style="text-align: center">Busca Cliente por id</h1>
         <form action="buscar_cliente.jsp">
             <label for="id">Busca</label>
             <input type="text" name="id" required>
             <input type="submit" value="Buscar">
         </form>
+        <br><a href="index.jsp" title="Voltar">Voltar</a>
         <%
             String id = request.getParameter("id");
             if(id != null){

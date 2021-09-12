@@ -77,7 +77,7 @@
                 for(int i = 0; i < lista.size(); i++){ 
                     Cliente cliente = lista.get(i);
                     out.println("<script>");
-                        out.println("criarLinhaTabelaCliente("+ cliente.getId() +", '"+ cliente.getNome() +"', '"+ cliente.getEmail() +"')");
+                        out.println("criarLinhaTabelaClientes("+ cliente.getId() +", '"+ cliente.getNome() +"', '"+ cliente.getEmail() +"')");
                     out.println("</script>");
                     /*out.print("<tr>");
                         out.print("<td>"+ lista.get(i).getId() +"</td>");

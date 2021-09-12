@@ -93,7 +93,7 @@ public class DAOCliente {
             cliente.setNome(result.getString("nome"));
             cliente.setEmail(result.getString("email"));
         }catch(Exception e){
-            throw new RuntimeException("Erro ao Buscar Cliente pelo ID" + e);
+            throw new RuntimeException("Erro ao Buscar Cliente pelo ID: " + e);
         }
         return cliente;
     }
